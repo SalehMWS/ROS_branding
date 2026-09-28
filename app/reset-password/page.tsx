@@ -24,17 +24,12 @@ function ResetPasswordForm() {
     setLoading(true)
     setError('')
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/reset-password`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token, password: form.password }),
-      })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error)
+      const { authAPI } = await import('@/lib/api')
+      await authAPI.resetPassword({ token, password: form.password })
       setDone(true)
       setTimeout(() => router.push('/login'), 2500)
-    } catch (err: any) {
-      setError(err.message || 'خطا در تغییر رمز')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'خطا در تغییر رمز')
     } finally {
       setLoading(false)
     }

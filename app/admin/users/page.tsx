@@ -3,12 +3,6 @@
 import React, { useState, useEffect } from 'react'
 import { adminAPI, AdminUser } from '@/lib/api'
 
-const planColor: Record<string, { bg: string; color: string }> = {
-  'استارتر': { bg: 'rgba(107,114,128,.15)', color: '#9CA3AF' },
-  'حرفه‌ای':  { bg: 'rgba(46,107,94,.2)',   color: '#4A8C7C' },
-  'سازمانی': { bg: 'rgba(124,58,237,.2)',   color: '#A78BFA' },
-}
-
 function Skeleton({ h = 18, w = '100%' }: { h?: number; w?: string }) {
   return <div style={{ height: h, width: w, borderRadius: 6, background: 'rgba(255,255,255,.06)', animation: 'pulse 1.4s ease-in-out infinite' }} />
 }
@@ -37,6 +31,8 @@ export default function AdminUsersPage() {
     }
   }
 
+  // search is applied explicitly via handleSearch, not on every keystroke
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { loadUsers() }, [page])
 
   function handleSearch() { setPage(1); loadUsers() }

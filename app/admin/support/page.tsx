@@ -160,7 +160,7 @@ export default function AdminSupportPage() {
                             {[
                               { label: 'نام', value: c.name },
                               { label: 'ایمیل', value: c.email },
-                              { label: 'تلفن', value: (c as any).phone || '—' },
+                              { label: 'تلفن', value: c.phone || '—' },
                               { label: 'تاریخ', value: new Date(c.created_at).toLocaleDateString('fa-IR') },
                             ].map(d => (
                               <div key={d.label}>

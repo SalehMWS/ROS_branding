@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const courses = [
   {
@@ -125,8 +125,13 @@ export default function CoursesSection() {
   const [modal, setModal] = useState<null | typeof courses[0]>(null)
   const [activeImg, setActiveImg] = useState(0)
 
-  function openModal(c: typeof courses[0]) { setModal(c); setActiveImg(0); document.body.style.overflow = 'hidden' }
-  function closeModal() { setModal(null); document.body.style.overflow = '' }
+  useEffect(() => {
+    document.body.style.overflow = modal ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [modal])
+
+  function openModal(c: typeof courses[0]) { setModal(c); setActiveImg(0) }
+  function closeModal() { setModal(null) }
 
   return (
     <section style={{ background: 'var(--c-bg)', padding: '7rem 0', borderTop: '1px solid var(--c-border)' }}>

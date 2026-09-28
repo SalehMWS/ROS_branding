@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'استراتژی برند',
+  description: 'طراحی استراتژی برند: جایگاه‌یابی، معماری، لحن و مسیر رشد بر پایه تحلیل بازار.',
+  alternates: { canonical: '/services/brand-strategy' },
+  openGraph: {
+    title: 'استراتژی برند',
+    description: 'طراحی استراتژی برند: جایگاه‌یابی، معماری، لحن و مسیر رشد بر پایه تحلیل بازار.',
+    url: '/services/brand-strategy',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 const services = [

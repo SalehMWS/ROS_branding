@@ -1,4 +1,17 @@
 node_modules/
 .next/
+out/
 .env.local
 .env*.local
+
+# build artifacts
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# design sources (kept locally, never deployed)
+assets-source/
+
+# OS / editor junk
+Thumbs.db
+.DS_Store
+*.bak

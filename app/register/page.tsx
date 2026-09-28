@@ -37,8 +37,8 @@ export default function RegisterPage() {
       localStorage.setItem('ros_token', res.token)
       localStorage.setItem('ros_user', JSON.stringify(res.user))
       router.push('/onboarding/brand-info')
-    } catch (err: any) {
-      setError(err.message || 'خطا در ثبت‌نام')
+    } catch (err) {
+      setError((err instanceof Error ? err.message : '') || 'خطا در ثبت‌نام')
     } finally {
       setLoading(false)
     }

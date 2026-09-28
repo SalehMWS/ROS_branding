@@ -115,7 +115,7 @@ export default function AdvantageSection() {
             <div style={{ position: 'relative', borderRadius: 20, background: '#07100d', border: '1px solid rgba(46,107,94,.18)', padding: '2.5rem', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: 0, right: '15%', left: '15%', height: 1, background: 'linear-gradient(90deg, transparent, rgba(74,140,124,.6), transparent)' }} />
 
-              <div style={{ fontSize: '4rem', lineHeight: .7, fontFamily: 'Georgia, serif', color: 'rgba(74,140,124,.2)', marginBottom: '1.5rem', userSelect: 'none' as const }}>"</div>
+              <div style={{ fontSize: '4rem', lineHeight: .7, fontFamily: 'Georgia, serif', color: 'rgba(74,140,124,.2)', marginBottom: '1.5rem', userSelect: 'none' as const }}>&quot;</div>
 
               <div style={{ fontSize: 'clamp(1.15rem,2vw,1.45rem)', fontWeight: 800, color: '#fff', lineHeight: 1.5, letterSpacing: '-.02em', marginBottom: '.75rem' }}>
                 در دنیایی که همه فریاد می‌زنند؛

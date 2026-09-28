@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'هویت بصری',
+  description: 'طراحی سیستم هویت بصری برند؛ لوگو، پالت رنگ، تایپوگرافی و المان‌های گرافیکی.',
+  alternates: { canonical: '/services/brand-design/visual-identity' },
+  openGraph: {
+    title: 'هویت بصری',
+    description: 'طراحی سیستم هویت بصری برند؛ لوگو، پالت رنگ، تایپوگرافی و المان‌های گرافیکی.',
+    url: '/services/brand-design/visual-identity',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 export default function Page() {

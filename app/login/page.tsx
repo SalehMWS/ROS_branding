@@ -30,8 +30,8 @@ export default function LoginPage() {
       localStorage.setItem('ros_token', res.token)
       localStorage.setItem('ros_user', JSON.stringify(res.user))
       router.push(res.user.role === 'admin' ? '/admin/dashboard' : '/dashboard')
-    } catch (err: any) {
-      setError(err.message || 'ایمیل یا رمز عبور اشتباه است')
+    } catch (err) {
+      setError((err instanceof Error ? err.message : '') || 'ایمیل یا رمز عبور اشتباه است')
     } finally {
       setLoading(false)
     }

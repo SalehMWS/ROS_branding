@@ -866,7 +866,7 @@ export default function CreateBrandProfilePage() {
                       "تعریف شخصیت برند...",
                       "تنظیم لحن و ارزش‌ها...",
                       "تولید سند نهایی...",
-                    ].map((step, i) => (
+                    ].map(step => (
                       <div
                         key={step}
                         style={{

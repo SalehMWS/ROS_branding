@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'تحلیل هوشمند برند',
+  description: 'سنجش انسجام برند در همه کانال‌ها با تحلیل هوش مصنوعی رُس؛ از شخصیت و لحن تا ارزش‌های برند.',
+  alternates: { canonical: '/ai' },
+  openGraph: {
+    title: 'تحلیل هوشمند برند',
+    description: 'سنجش انسجام برند در همه کانال‌ها با تحلیل هوش مصنوعی رُس؛ از شخصیت و لحن تا ارزش‌های برند.',
+    url: '/ai',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 const modules = [

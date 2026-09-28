@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'سند برند',
+  description: 'تدوین سند جامع برند؛ مرجع واحد استراتژی، شخصیت، لحن و قواعد اجرایی برند.',
+  alternates: { canonical: '/services/brand-strategy/brand-document' },
+  openGraph: {
+    title: 'سند برند',
+    description: 'تدوین سند جامع برند؛ مرجع واحد استراتژی، شخصیت، لحن و قواعد اجرایی برند.',
+    url: '/services/brand-strategy/brand-document',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 export default function Page() {

@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'برندبوک',
+  description: 'تدوین برندبوک؛ قواعد دقیق استفاده از لوگو، رنگ، تایپوگرافی و لحن بصری برند.',
+  alternates: { canonical: '/services/brand-design/brandbook' },
+  openGraph: {
+    title: 'برندبوک',
+    description: 'تدوین برندبوک؛ قواعد دقیق استفاده از لوگو، رنگ، تایپوگرافی و لحن بصری برند.',
+    url: '/services/brand-design/brandbook',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 export default function Page() {

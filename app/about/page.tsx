@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'درباره ما',
+  description: 'آژانس برندینگ رُس — فلسفه، ارزش‌ها و تیمی که استراتژی برند را با تحلیل داده و درک فرهنگی بازار ایران می‌سازد.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'درباره ما',
+    description: 'آژانس برندینگ رُس — فلسفه، ارزش‌ها و تیمی که استراتژی برند را با تحلیل داده و درک فرهنگی بازار ایران می‌سازد.',
+    url: '/about',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 const principles = [
@@ -24,21 +38,6 @@ const timeline = [
   { year: '۱۴۰۰', title: 'توسعه خدمات', desc: 'گسترش تیم و افزودن خدمات استراتژی و تجربه برند.' },
   { year: '۱۴۰۲', title: 'تولد رُس AI', desc: 'راه‌اندازی اولین نسخه ابزار هوشمند تحلیل انسجام برند.' },
   { year: '۱۴۰۳', title: 'نسخه عمومی سرویس رُس', desc: 'عرضه سرویس ROS AI به عموم برندها و کسب‌وکارها.' },
-]
-
-const values = [
-  'تعهد به تفکر پیش از اجرا',
-  'درک بستر فرهنگی برندها',
-  'مسئولیت‌پذیری در قبال نتایج',
-  'پرهیز از شعارهای پوچ یا خروجی‌های تزئینی',
-  'شفافیت در فرایند و ارتباط با مشتری',
-  'احترام به هویت منحصربه‌فرد هر برند',
-]
-
-const team = [
-  { name: 'سعید معینی‌نیا', role: 'مدیر' },
-  { name: 'محمد امین رجبی', role: 'مدیر محصول' },
-  { name: 'محمد صالح عسکرزاده', role: 'توسعه‌دهنده' },
 ]
 
 export default function AboutPage() {
@@ -118,7 +117,7 @@ export default function AboutPage() {
               <div style={{ position: 'absolute', bottom: -60, left: -60, width: 250, height: 250, borderRadius: '50%', background: 'radial-gradient(circle, rgba(46,107,94,.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
               {/* گیومه */}
-              <div style={{ position: 'absolute', top: '1.5rem', left: '2rem', fontSize: '6rem', lineHeight: 1, color: 'rgba(74,140,124,.08)', fontFamily: 'Georgia, serif', userSelect: 'none' as const }}>"</div>
+              <div style={{ position: 'absolute', top: '1.5rem', left: '2rem', fontSize: '6rem', lineHeight: 1, color: 'rgba(74,140,124,.08)', fontFamily: 'Georgia, serif', userSelect: 'none' as const }}>&quot;</div>
 
               <div style={{ position: 'relative' }}>
                 <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', fontWeight: 800, color: 'var(--c-text)', lineHeight: 1.7, letterSpacing: '-.02em', marginBottom: '1.25rem' }}>
@@ -323,7 +322,7 @@ export default function AboutPage() {
             {[
               { slug: 'saeid-maeini', name: 'سعید معینی‌نیا', role: 'مجری طرح | مدیرعامل', edu: 'MBA', photo: '/team/saeid-maeini.jpg', hasResume: true, skills: ['استراتژی برند','مدیریت محصول'], color: '#4A8C7C', num: '۰۱' },
               { slug: 'amjad-amiri', name: 'امجد امیری', role: 'مدیر امور حقوقی', edu: 'دکتری حقوق', photo: '/team/amjad-amiri.jpg', hasResume: false, skills: ['حقوق قراردادها','مالکیت فکری'], color: '#818CF8', num: '۰۲' },
-              { slug: 'mojtaba-roshani', name: 'مجتبی روشنی', role: 'مدیر فنی (CTO)', edu: 'ارشد CS', photo: '/team/mojtaba-roshani.png', hasResume: true, skills: ['معماری سیستم','SRE'], color: '#38BDF8', num: '۰۳' },
+              { slug: 'mojtaba-roshani', name: 'مجتبی روشنی', role: 'مدیر فنی (CTO)', edu: 'ارشد CS', photo: '/team/mojtaba-roshani.jpg', hasResume: true, skills: ['معماری سیستم','SRE'], color: '#38BDF8', num: '۰۳' },
               { slug: 'danial-khazaei', name: 'دانیال خزاعی', role: 'برنامه‌نویس | متخصص AI', edu: 'کارشناسی کامپیوتر', photo: null, hasResume: true, skills: ['هوش مصنوعی','Machine Learning'], color: '#A78BFA', num: '۰۴' },
               { slug: 'abolfazl-asadi', name: 'ابوالفضل اسدی', role: 'مدیر هنری | طراحی', edu: 'کارشناسی صنایع', photo: '/team/abolfazl-asadi.jpg', hasResume: true, skills: ['هویت بصری','طراحی گرافیک'], color: '#F472B6', num: '۰۵' },
               { slug: 'saleh-askarzadeh', name: 'محمد صالح عسکرزاده', role: 'Backend Developer | SRE', edu: 'کارشناسی کامپیوتر', photo: '/team/saleh-askarzadeh.jpg', hasResume: false, skills: ['Backend','DevOps'], color: '#FBBF24', num: '۰۶' },

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import SectionBadge from '../ui/SectionBadge'
 import ScrollReveal from '../ui/ScrollReveal'
 import Link from 'next/link'
 

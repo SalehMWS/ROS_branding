@@ -135,7 +135,7 @@ export default function MagazinePage() {
           </p>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' as const }}>
-            {[`${articles.length} مقاله تخصصی`, 'به‌روزرسانی هفتگی', 'کاملاً رایگان'].map((t, i) => (
+            {[`${articles.length} مقاله تخصصی`, 'به‌روزرسانی هفتگی', 'کاملاً رایگان'].map(t => (
               <span key={t} style={{ display: 'flex', alignItems: 'center', gap: '.4rem', fontSize: '.72rem', color: 'var(--c-text-light)' }}>
                 <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#4A8C7C', display: 'inline-block' }} />
                 {t}

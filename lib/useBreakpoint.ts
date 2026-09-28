@@ -1,14 +1,17 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useSyncExternalStore } from 'react'
+
+function subscribe(onChange: () => void) {
+  window.addEventListener('resize', onChange)
+  return () => window.removeEventListener('resize', onChange)
+}
+
+/** 1280 is the server/prerender value, matching the previous initial state. */
+const getSnapshot = () => window.innerWidth
+const getServerSnapshot = () => 1280
 
 export function useBreakpoint() {
-  const [width, setWidth] = useState(1280)
-  useEffect(() => {
-    setWidth(window.innerWidth)
-    const fn = () => setWidth(window.innerWidth)
-    window.addEventListener('resize', fn)
-    return () => window.removeEventListener('resize', fn)
-  }, [])
+  const width = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
   return {
     isMobile: width < 480,
     isTablet: width < 768,

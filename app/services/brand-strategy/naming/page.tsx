@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'نام‌گذاری برند',
+  description: 'خلق نام برند؛ از تولید گزینه‌ها تا بررسی حقوقی، زبانی و فرهنگی در بازار ایران.',
+  alternates: { canonical: '/services/brand-strategy/naming' },
+  openGraph: {
+    title: 'نام‌گذاری برند',
+    description: 'خلق نام برند؛ از تولید گزینه‌ها تا بررسی حقوقی، زبانی و فرهنگی در بازار ایران.',
+    url: '/services/brand-strategy/naming',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 export default function Page() {

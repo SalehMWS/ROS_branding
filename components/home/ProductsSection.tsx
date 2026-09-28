@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const products = [
   {
@@ -117,11 +117,16 @@ export default function ProductsSection() {
   const [modal, setModal] = useState<null | typeof products[0]>(null)
   const [activeImg, setActiveImg] = useState(0)
 
+  useEffect(() => {
+    document.body.style.overflow = modal ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [modal])
+
   function openModal(p: typeof products[0]) {
-    setModal(p); setActiveImg(0); document.body.style.overflow = 'hidden'
+    setModal(p); setActiveImg(0)
   }
   function closeModal() {
-    setModal(null); document.body.style.overflow = ''
+    setModal(null)
   }
 
   return (

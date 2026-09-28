@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'معماری برند',
+  description: 'ساختاردهی سبد برند و روابط میان برندها؛ تصمیم‌گیری درباره برند مادر، زیربرندها و برندهای مستقل.',
+  alternates: { canonical: '/services/brand-strategy/architecture' },
+  openGraph: {
+    title: 'معماری برند',
+    description: 'ساختاردهی سبد برند و روابط میان برندها؛ تصمیم‌گیری درباره برند مادر، زیربرندها و برندهای مستقل.',
+    url: '/services/brand-strategy/architecture',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 export default function Page() {

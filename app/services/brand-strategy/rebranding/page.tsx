@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'ری‌برندینگ',
+  description: 'بازطراحی برند؛ تشخیص زمان درست، مدیریت ریسک و اجرای مرحله‌به‌مرحله تغییر.',
+  alternates: { canonical: '/services/brand-strategy/rebranding' },
+  openGraph: {
+    title: 'ری‌برندینگ',
+    description: 'بازطراحی برند؛ تشخیص زمان درست، مدیریت ریسک و اجرای مرحله‌به‌مرحله تغییر.',
+    url: '/services/brand-strategy/rebranding',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 export default function Page() {

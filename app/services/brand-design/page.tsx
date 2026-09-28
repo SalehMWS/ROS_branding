@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'طراحی برند',
+  description: 'هویت بصری، برندبوک و اقلام چاپی؛ ترجمه استراتژی برند به زبان بصری منسجم.',
+  alternates: { canonical: '/services/brand-design' },
+  openGraph: {
+    title: 'طراحی برند',
+    description: 'هویت بصری، برندبوک و اقلام چاپی؛ ترجمه استراتژی برند به زبان بصری منسجم.',
+    url: '/services/brand-design',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 const services = [

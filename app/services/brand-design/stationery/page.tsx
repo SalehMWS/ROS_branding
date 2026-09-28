@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'اقلام چاپی برند',
+  description: 'طراحی ست اداری و اقلام چاپی برند با رعایت کامل هویت بصری.',
+  alternates: { canonical: '/services/brand-design/stationery' },
+  openGraph: {
+    title: 'اقلام چاپی برند',
+    description: 'طراحی ست اداری و اقلام چاپی برند با رعایت کامل هویت بصری.',
+    url: '/services/brand-design/stationery',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 export default function Page() {

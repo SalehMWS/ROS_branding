@@ -3,12 +3,6 @@
 import { useState, useEffect } from 'react'
 import { adminAPI, AdminAnalysis } from '@/lib/api'
 
-const statusMap: Record<string, { label: string; bg: string; color: string }> = {
-  complete: { label: 'کامل',   bg: 'rgba(52,211,153,.1)', color: '#34D399' },
-  pending:  { label: 'در صف', bg: 'rgba(245,158,11,.1)', color: '#FBBF24' },
-  error:    { label: 'خطا',   bg: 'rgba(239,68,68,.1)',  color: '#F87171' },
-}
-
 function Skeleton({ h = 18 }: { h?: number }) {
   return <div style={{ height: h, borderRadius: 6, background: 'rgba(255,255,255,.06)', animation: 'pulse 1.4s ease-in-out infinite' }} />
 }

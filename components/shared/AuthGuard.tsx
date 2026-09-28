@@ -28,7 +28,7 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
     }
 
     setChecked(true)
-  }, [pathname])
+  }, [pathname, router])
 
   if (!checked) return (
     <div style={{ minHeight: '100vh', background: '#0C0F0E', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

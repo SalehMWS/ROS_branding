@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'تجربه برند',
+  description: 'طراحی تجربه برند در تمام نقاط تماس؛ از اولین مواجهه تا وفاداری بلندمدت.',
+  alternates: { canonical: '/services/brand-strategy/experience' },
+  openGraph: {
+    title: 'تجربه برند',
+    description: 'طراحی تجربه برند در تمام نقاط تماس؛ از اولین مواجهه تا وفاداری بلندمدت.',
+    url: '/services/brand-strategy/experience',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 export default function Page() {

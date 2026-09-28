@@ -30,8 +30,8 @@ export default function ContactPage() {
         message: form.message,
       })
       setSent(true)
-    } catch (err: any) {
-      setError(err.message || 'خطا در ارسال پیام')
+    } catch (err) {
+      setError((err instanceof Error ? err.message : '') || 'خطا در ارسال پیام')
     } finally {
       setLoading(false)
     }

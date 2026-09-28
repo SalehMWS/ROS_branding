@@ -1,27 +1,92 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/api/v1'
+export const BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/api/v1'
+
+const TIMEOUT_MS = 20_000
+
+export class ApiError extends Error {
+  status: number
+  constructor(message: string, status: number) {
+    super(message)
+    this.name = 'ApiError'
+    this.status = status
+  }
+}
+
+export const TOKEN_KEY = 'ros_token'
+export const USER_KEY = 'ros_user'
+
+function getToken() {
+  if (typeof window === 'undefined') return null
+  try {
+    return localStorage.getItem(TOKEN_KEY)
+  } catch {
+    return null
+  }
+}
+
+export function clearSession() {
+  if (typeof window === 'undefined') return
+  try {
+    localStorage.removeItem(TOKEN_KEY)
+    localStorage.removeItem(USER_KEY)
+  } catch {
+    /* storage unavailable */
+  }
+}
+
+/** Parses JSON defensively: a 204 or an HTML error page must not blow up
+ *  with an opaque "Unexpected token <" further up the stack. */
+async function parseBody(res: Response): Promise<unknown> {
+  if (res.status === 204) return null
+  const text = await res.text()
+  if (!text) return null
+  try {
+    return JSON.parse(text)
+  } catch {
+    return { error: text.slice(0, 200) }
+  }
+}
 
 async function request<T>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<T> {
-  const token = typeof window !== 'undefined' ? localStorage.getItem('ros_token') : null
+  const token = getToken()
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS)
 
-  const res = await fetch(`${BASE_URL}${endpoint}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      ...options.headers,
-    },
-    ...options,
-  })
+  let res: Response
+  try {
+    res = await fetch(`${BASE_URL}${endpoint}`, {
+      ...options,
+      signal: options.signal ?? controller.signal,
+      headers: {
+        'Content-Type': 'application/json',
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        ...options.headers,
+      },
+    })
+  } catch (err) {
+    clearTimeout(timer)
+    if (err instanceof DOMException && err.name === 'AbortError') {
+      throw new ApiError('زمان پاسخ سرور به پایان رسید. دوباره تلاش کنید.', 0)
+    }
+    throw new ApiError('ارتباط با سرور برقرار نشد. اتصال اینترنت را بررسی کنید.', 0)
+  }
+  clearTimeout(timer)
 
-  const data = await res.json()
+  const data = await parseBody(res)
 
   if (!res.ok) {
-    throw new Error(data.error || 'خطای سرور')
+    if (res.status === 401) clearSession()
+    const message =
+      (data && typeof data === 'object' && 'error' in data
+        ? String((data as { error: unknown }).error)
+        : '') || 'خطای سرور'
+    throw new ApiError(message, res.status)
   }
 
-  return data
+  return data as T
 }
 
 // Auth
@@ -33,6 +98,12 @@ export const authAPI = {
     request<{ token: string; user: User }>('/auth/login', { method: 'POST', body: JSON.stringify(body) }),
 
   me: () => request<User>('/auth/me'),
+
+  forgotPassword: (body: { email: string }) =>
+    request<{ message: string }>('/auth/forgot-password', { method: 'POST', body: JSON.stringify(body) }),
+
+  resetPassword: (body: { token: string; password: string }) =>
+    request<{ message: string }>('/auth/reset-password', { method: 'POST', body: JSON.stringify(body) }),
 }
 
 // Brand
@@ -192,6 +263,19 @@ export interface AdminAnalysis {
 }
 
 // ─── Admin API ─────────────────────────────────────────────
+
+/** The backend returns either a bare array or a `{ <key>: [], total }`
+ *  envelope depending on the endpoint; normalise both into one shape. */
+function normalizeList<T>(data: unknown, key: string): { items: T[]; total: number } {
+  if (Array.isArray(data)) return { items: data as T[], total: data.length }
+  if (data && typeof data === 'object') {
+    const obj = data as Record<string, unknown>
+    const items = Array.isArray(obj[key]) ? (obj[key] as T[]) : []
+    const total = typeof obj.total === 'number' ? obj.total : items.length
+    return { items, total }
+  }
+  return { items: [], total: 0 }
+}
 export const adminAPI = {
   getStats: () =>
     request<AdminStats>('/admin/stats'),
@@ -201,7 +285,10 @@ export const adminAPI = {
     if (params?.page)   q.set('page',   String(params.page))
     if (params?.limit)  q.set('limit',  String(params.limit))
     if (params?.search) q.set('search', params.search)
-    return request<AdminUser[] | { users: AdminUser[]; total: number }>(`/admin/users?${q}`).then((data: any) => ({ users: Array.isArray(data) ? data : (data.users ?? []), total: Array.isArray(data) ? data.length : (data.total ?? 0) }))
+    return request<unknown>(`/admin/users?${q}`).then(data => {
+      const { items, total } = normalizeList<AdminUser>(data, 'users')
+      return { users: items, total }
+    })
   },
 
   updateUserRole: (id: string, role: 'user' | 'admin') =>
@@ -211,10 +298,16 @@ export const adminAPI = {
     }),
 
   getAnalyses: () =>
-    request<AdminAnalysis[] | { analyses: AdminAnalysis[]; total: number }>('/admin/analyses').then((data: any) => ({ analyses: Array.isArray(data) ? data : (data.analyses ?? []), total: Array.isArray(data) ? data.length : (data.total ?? 0) })),
+    request<unknown>('/admin/analyses').then(data => {
+      const { items, total } = normalizeList<AdminAnalysis>(data, 'analyses')
+      return { analyses: items, total }
+    }),
 
   getContacts: () =>
-    request<AdminContact[]>("/admin/contacts").then(data => ({ contacts: Array.isArray(data) ? data : (data as any).contacts ?? [], total: Array.isArray(data) ? data.length : 0 })),
+    request<unknown>('/admin/contacts').then(data => {
+      const { items, total } = normalizeList<AdminContact>(data, 'contacts')
+      return { contacts: items, total }
+    }),
 
   updateContactStatus: (id: string, status: 'read' | 'unread' | 'resolved') =>
     request<{ message: string }>(`/admin/contacts/${id}/status`, {

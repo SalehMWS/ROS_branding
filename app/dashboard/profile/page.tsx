@@ -42,8 +42,8 @@ export default function ProfilePage() {
       }
       setSaved(section)
       setTimeout(() => setSaved(''), 2500)
-    } catch (err: any) {
-      alert(err.message || 'خطا در ذخیره')
+    } catch (err) {
+      alert((err instanceof Error ? err.message : '') || 'خطا در ذخیره')
     }
   }
 

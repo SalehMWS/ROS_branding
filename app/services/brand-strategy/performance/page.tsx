@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'عملکرد برند',
+  description: 'سنجش و پایش عملکرد برند با شاخص‌های قابل اندازه‌گیری و گزارش‌های دوره‌ای.',
+  alternates: { canonical: '/services/brand-strategy/performance' },
+  openGraph: {
+    title: 'عملکرد برند',
+    description: 'سنجش و پایش عملکرد برند با شاخص‌های قابل اندازه‌گیری و گزارش‌های دوره‌ای.',
+    url: '/services/brand-strategy/performance',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 
 export default function Page() {

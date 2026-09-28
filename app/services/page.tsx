@@ -1,3 +1,17 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'خدمات برندینگ',
+  description: 'استراتژی برند، هویت بصری، نام‌گذاری و برندبوک — ۷ فاز مشخص با خروجی‌های قابل تحویل.',
+  alternates: { canonical: '/services' },
+  openGraph: {
+    title: 'خدمات برندینگ',
+    description: 'استراتژی برند، هویت بصری، نام‌گذاری و برندبوک — ۷ فاز مشخص با خروجی‌های قابل تحویل.',
+    url: '/services',
+    images: ['/og-image.jpg'],
+  },
+}
+
 import Link from 'next/link'
 import ProjectRoadmap from '@/components/shared/ProjectRoadmap'
 
