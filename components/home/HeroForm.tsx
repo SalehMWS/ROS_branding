@@ -18,14 +18,14 @@ export default function HeroForm() {
 
   return (
     <>
-      <div style={{ display: 'flex', gap: '.65rem', maxWidth: 480, margin: '0 auto' }}>
+      <div style={{ display: 'flex', gap: '.65rem', maxWidth: 480, margin: '0 auto', width: '100%' }}>
         <input
           value={url}
           onChange={e => setUrl(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && handleAnalyze()}
           placeholder="آدرس وب‌سایت یا اینستاگرام برند..."
           style={{
-            flex: 1, padding: '.85rem 1.1rem',
+            flex: 1, minWidth: 0, padding: '.85rem 1.1rem',
             background: 'rgba(255,255,255,.07)',
             border: '1px solid rgba(255,255,255,.12)',
             borderRadius: 10, fontSize: '.88rem',

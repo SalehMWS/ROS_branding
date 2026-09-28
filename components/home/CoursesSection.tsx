@@ -157,7 +157,7 @@ export default function CoursesSection() {
         </div>
 
         {/* grid — 3 equal cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
+        <div className="rg-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
           {courses.map(c => <CourseCard key={c.slug} c={c} onClick={() => openModal(c)} />)}
         </div>
       </div>

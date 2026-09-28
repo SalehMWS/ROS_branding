@@ -13,9 +13,9 @@ export default function ArticleClient({ slug }: { slug: string }) {
       <article style={{ maxWidth: 780, margin: '0 auto', padding: '4rem 1.5rem 8rem' }}>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '.5rem', marginBottom: '2.5rem', fontSize: '.72rem', color: 'var(--c-text-light)' }}>
-          <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>خانه</Link>
+          <Link href="/" className="tap" style={{ color: 'inherit', textDecoration: 'none' }}>خانه</Link>
           <span>/</span>
-          <Link href="/magazine" style={{ color: 'inherit', textDecoration: 'none' }}>مجله</Link>
+          <Link href="/magazine" className="tap" style={{ color: 'inherit', textDecoration: 'none' }}>مجله</Link>
           <span>/</span>
           <span style={{ color: 'var(--c-primary)' }}>{article.category}</span>
         </div>
@@ -56,7 +56,7 @@ export default function ArticleClient({ slug }: { slug: string }) {
         </div>
 
         <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-          <Link href="/magazine" style={{ display: 'inline-flex', alignItems: 'center', gap: '.5rem', fontSize: '.82rem', fontWeight: 600, color: 'var(--c-primary)', textDecoration: 'none' }}>
+          <Link href="/magazine" className="tap" style={{ display: 'inline-flex', alignItems: 'center', gap: '.5rem', fontSize: '.82rem', fontWeight: 600, color: 'var(--c-primary)', textDecoration: 'none' }}>
             بازگشت به مجله
           </Link>
         </div>

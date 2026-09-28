@@ -260,6 +260,7 @@ export default function BrandInfoPage() {
                 <span style={{ color: "var(--c-primary)" }}>*</span>
               </label>
               <div
+                className="rg-2-sm"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",

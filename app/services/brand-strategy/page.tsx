@@ -124,7 +124,7 @@ export default function BrandStrategyPage() {
       <section style={{ padding: '5rem 2rem', maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           {services.map((svc, i) => (
-            <div key={svc.slug} style={{
+            <div className="rg-auto" key={svc.slug} style={{
               background: 'var(--c-surface)',
               border: '1px solid var(--c-border)',
               borderRadius: 'var(--r-lg)',

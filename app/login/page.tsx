@@ -206,7 +206,7 @@ export default function LoginPage() {
                       <label style={{ fontSize: '.78rem', fontWeight: 500, color: 'var(--c-text-muted)' }}>
                         رمز عبور
                       </label>
-                      <Link href="/forgot-password" style={{ fontSize: '.75rem', color: 'var(--c-primary)' }}>
+                      <Link href="/forgot-password" className="tap" style={{ fontSize: '.75rem', color: 'var(--c-primary)' }}>
                         فراموش کردم
                       </Link>
                     </div>

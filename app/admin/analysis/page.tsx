@@ -77,10 +77,10 @@ export default function AdminAnalysisPage() {
       {msg && <div style={{ padding: '.65rem 1rem', marginBottom: '1rem', background: 'rgba(52,211,153,.1)', border: '1px solid rgba(52,211,153,.2)', borderRadius: 8, fontSize: '.82rem', color: '#34D399' }}>{msg}</div>}
 
       {/* Search */}
-      <div style={{ display: 'flex', gap: '.75rem', marginBottom: '1.25rem' }}>
+      <div style={{ display: 'flex', gap: '.75rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
         <input value={search} onChange={e => setSearch(e.target.value)}
           placeholder="جستجو برند یا کانال..."
-          style={{ padding: '.6rem 1rem', minWidth: 220, background: '#1C2333', border: '1px solid rgba(255,255,255,.08)', borderRadius: 8, fontSize: '.82rem', color: 'white', outline: 'none' }} />
+          style={{ padding: '.6rem 1rem', flex: '1 1 160px', minWidth: 0, maxWidth: 220, background: '#1C2333', border: '1px solid rgba(255,255,255,.08)', borderRadius: 8, fontSize: '.82rem', color: 'white', outline: 'none' }} />
         <span style={{ fontSize: '.75rem', color: 'rgba(255,255,255,.3)', alignSelf: 'center' }}>{filtered.length} نتیجه</span>
       </div>
 
@@ -94,7 +94,7 @@ export default function AdminAnalysisPage() {
           ) : filtered.length === 0 ? (
             <div style={{ padding: '3rem', textAlign: 'center', color: 'rgba(255,255,255,.3)', fontSize: '.85rem' }}>تحلیلی یافت نشد</div>
           ) : (
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <table style={{ width: '100%', minWidth: 640, borderCollapse: 'collapse' }}>
               <thead>
                 <tr>{['#','برند','کانال','نمره','تاریخ'].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr>
               </thead>

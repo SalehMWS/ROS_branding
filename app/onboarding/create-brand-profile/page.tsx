@@ -340,6 +340,7 @@ export default function CreateBrandProfilePage() {
                   />
                 </div>
                 <div
+                  className="rg-2"
                   style={{
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr",

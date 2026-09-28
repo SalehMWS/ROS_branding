@@ -102,7 +102,7 @@ export default function AboutPage() {
           </div>
 
           {/* گرید اصلی */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(1.5rem,3vw,3rem)', alignItems: 'stretch' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(1.5rem,3vw,3rem)', alignItems: 'stretch' }}>
 
             {/* چپ: کارت نقل‌قول بزرگ */}
             <div style={{
@@ -196,7 +196,7 @@ export default function AboutPage() {
               چگونه با برندها کار می‌کنیم؟
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap: '1.5rem' }}>
             {principles.map((p, i) => (
               <div key={p.title} style={{
                 padding: '2rem',
@@ -318,7 +318,7 @@ export default function AboutPage() {
           </div>
 
           {/* گرید */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: '1.25rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 290px), 1fr))', gap: '1.25rem' }}>
             {[
               { slug: 'saeid-maeini', name: 'سعید معینی‌نیا', role: 'مجری طرح | مدیرعامل', edu: 'MBA', photo: '/team/saeid-maeini.jpg', hasResume: true, skills: ['استراتژی برند','مدیریت محصول'], color: '#4A8C7C', num: '۰۱' },
               { slug: 'amjad-amiri', name: 'امجد امیری', role: 'مدیر امور حقوقی', edu: 'دکتری حقوق', photo: '/team/amjad-amiri.jpg', hasResume: false, skills: ['حقوق قراردادها','مالکیت فکری'], color: '#818CF8', num: '۰۲' },
@@ -370,7 +370,7 @@ export default function AboutPage() {
                 {/* دکمه */}
                 <div style={{ marginTop: 'auto', width: '100%' }}>
                   {m.hasResume ? (
-                    <a href={`/team/${m.slug}`} className="tc-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '.4rem', fontSize: '.7rem', fontWeight: 700, color: m.color, opacity: .65, textDecoration: 'none', transition: 'all .3s ease' }}>
+                    <a href={`/team/${m.slug}`} className="tc-btn tap" style={{ display: 'inline-flex', alignItems: 'center', gap: '.4rem', fontSize: '.7rem', fontWeight: 700, color: m.color, opacity: .65, textDecoration: 'none', transition: 'all .3s ease' }}>
                       مشاهده رزومه
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
@@ -393,7 +393,7 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
 
           {/* تایتل + توضیح کنار هم */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'clamp(1.5rem,4vw,4rem)', alignItems: 'center', marginBottom: '4rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(1.5rem,4vw,4rem)', alignItems: 'center', marginBottom: '4rem' }}>
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '.75rem', marginBottom: '1.25rem' }}>
                 <div style={{ width: 3, height: 18, background: 'linear-gradient(to bottom, #7dcfbe, #2E6B5E)', borderRadius: 2 }} />
@@ -411,7 +411,7 @@ export default function AboutPage() {
           </div>
 
           {/* گرید ۳ ستونه */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: '1rem' }}>
             {[
               { num: '۰۱', title: 'تعهد به تفکر پیش از اجرا', desc: 'هیچ قلمی نمی‌زنیم تا ندانیم چرا.' },
               { num: '۰۲', title: 'درک بستر فرهنگی برندها', desc: 'برند بدون فرهنگ، پوسته‌ای بی‌روح است.' },

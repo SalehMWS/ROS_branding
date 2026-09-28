@@ -23,9 +23,9 @@ export default function TeamClient({ slug }: { slug: string }) {
 
         {/* breadcrumb */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '.5rem', marginBottom: '3rem', fontSize: '.72rem', color: 'rgba(255,255,255,.2)' }}>
-          <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>خانه</Link>
+          <Link href="/" className="tap" style={{ color: 'inherit', textDecoration: 'none' }}>خانه</Link>
           <span>/</span>
-          <Link href="/about#team" style={{ color: 'inherit', textDecoration: 'none' }}>درباره رُس</Link>
+          <Link href="/about#team" className="tap" style={{ color: 'inherit', textDecoration: 'none' }}>درباره رُس</Link>
           <span>/</span>
           <span style={{ color: m.color, opacity: .8 }}>{m.name}</span>
         </div>
@@ -63,7 +63,7 @@ export default function TeamClient({ slug }: { slug: string }) {
         {m.resumePages.length > 0 && (
           <div style={{ background: 'rgba(255,255,255,.015)', border: '1px solid rgba(255,255,255,.06)', borderRadius: 20, padding: '1.5rem' }}>
             <div style={{ fontSize: '.6rem', fontWeight: 700, letterSpacing: '.14em', color: 'rgba(255,255,255,.2)', textTransform: 'uppercase' as const, marginBottom: '1.25rem' }}>رزومه</div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 200px), 1fr))', gap: '1rem' }}>
               {m.resumePages.map((src, i) => (
                 <div key={i} onClick={() => setActiveImg(src)}
                   style={{ borderRadius: 14, overflow: 'hidden', border: '1px solid rgba(255,255,255,.07)', cursor: 'zoom-in', transition: 'all .3s ease', background: 'rgba(255,255,255,.02)' }}
@@ -79,7 +79,7 @@ export default function TeamClient({ slug }: { slug: string }) {
         )}
 
         <div style={{ marginTop: '2.5rem', textAlign: 'center' as const }}>
-          <a href="/about#team" style={{ display: 'inline-flex', alignItems: 'center', gap: '.5rem', fontSize: '.78rem', fontWeight: 600, color: 'rgba(74,140,124,.6)', textDecoration: 'none' }}>
+          <a href="/about#team" className="tap" style={{ display: 'inline-flex', alignItems: 'center', gap: '.5rem', fontSize: '.78rem', fontWeight: 600, color: 'rgba(74,140,124,.6)', textDecoration: 'none' }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             بازگشت به تیم
           </a>

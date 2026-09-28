@@ -131,7 +131,7 @@ export default function RequestConsultationPage() {
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div className="rg-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>
                   <label style={labelStyle}>نام کامل <span style={{ color: 'var(--c-primary)' }}>*</span></label>
                   <input value={form.name} onChange={e => set('name', e.target.value)}
@@ -148,7 +148,7 @@ export default function RequestConsultationPage() {
                 <input value={form.role} onChange={e => set('role', e.target.value)}
                   placeholder="مثلاً مدیرعامل، مدیر مارکتینگ..." style={inputStyle} />
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div className="rg-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>
                   <label style={labelStyle}>ایمیل <span style={{ color: 'var(--c-primary)' }}>*</span></label>
                   <input value={form.email} onChange={e => set('email', e.target.value)}

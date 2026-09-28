@@ -116,7 +116,7 @@ export default function AdminSupportPage() {
           ) : filtered.length === 0 ? (
             <div style={{ padding: '3rem', textAlign: 'center', color: 'rgba(255,255,255,.3)', fontSize: '.85rem' }}>پیامی یافت نشد</div>
           ) : (
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <table style={{ width: '100%', minWidth: 640, borderCollapse: 'collapse' }}>
               <thead>
                 <tr>{['نام', 'ایمیل', 'موضوع', 'وضعیت', 'تاریخ', 'عملیات'].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr>
               </thead>
@@ -156,7 +156,7 @@ export default function AdminSupportPage() {
                     {selected === c.id && (
                       <tr key={`${c.id}-detail`}>
                         <td colSpan={6} style={{ padding: '1.25rem 1.5rem', background: 'rgba(46,107,94,.05)', borderTop: '1px solid rgba(255,255,255,.04)' }}>
-                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px,1fr))', gap: '.75rem', marginBottom: '1rem' }}>
+                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px),1fr))', gap: '.75rem', marginBottom: '1rem' }}>
                             {[
                               { label: 'نام', value: c.name },
                               { label: 'ایمیل', value: c.email },

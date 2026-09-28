@@ -64,7 +64,7 @@ export default function ProjectRoadmap({ mode = 'full', activePhase = 0 }: Props
   }
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: '1rem' }}>
       {phases.map((p, i) => (
         <div key={p.num} onClick={() => setActive(i)} style={{ background: active === i ? `${p.color}08` : 'rgba(255,255,255,.02)', border: `1px solid ${active === i ? p.color + '35' : 'rgba(255,255,255,.07)'}`, borderRadius: 18, padding: '1.5rem', cursor: 'pointer', transition: 'all .3s ease', borderRight: `3px solid ${p.color}${active === i ? '' : '50'}` }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '1rem', gap: '.5rem' }}>

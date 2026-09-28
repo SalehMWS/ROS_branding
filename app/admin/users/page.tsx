@@ -96,7 +96,7 @@ export default function AdminUsersPage() {
         <input value={search} onChange={e => setSearch(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && handleSearch()}
           placeholder="جستجو نام یا ایمیل..."
-          style={{ padding: '.6rem 1rem', minWidth: 240, background: '#1C2333', border: '1px solid rgba(255,255,255,.08)', borderRadius: 8, fontSize: '.82rem', color: 'white', outline: 'none' }} />
+          style={{ padding: '.6rem 1rem', flex: '1 1 160px', minWidth: 0, maxWidth: 240, background: '#1C2333', border: '1px solid rgba(255,255,255,.08)', borderRadius: 8, fontSize: '.82rem', color: 'white', outline: 'none' }} />
         <button onClick={handleSearch} style={{ padding: '.6rem 1.1rem', background: 'rgba(46,107,94,.2)', color: '#4A8C7C', border: '1px solid rgba(46,107,94,.3)', borderRadius: 8, fontSize: '.8rem', cursor: 'pointer' }}>جستجو</button>
         <span style={{ fontSize: '.75rem', color: 'rgba(255,255,255,.3)', marginRight: 'auto' }}>{total} نتیجه</span>
       </div>
@@ -111,7 +111,7 @@ export default function AdminUsersPage() {
           ) : users.length === 0 ? (
             <div style={{ padding: '3rem', textAlign: 'center', color: 'rgba(255,255,255,.3)', fontSize: '.85rem' }}>کاربری یافت نشد</div>
           ) : (
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <table style={{ width: '100%', minWidth: 640, borderCollapse: 'collapse' }}>
               <thead>
                 <tr>
                   {['نام','ایمیل','نقش','وضعیت','تاریخ عضویت','عملیات'].map(h => (
@@ -152,7 +152,7 @@ export default function AdminUsersPage() {
                     {selected === u.id && (
                       <tr key={`${u.id}-detail`}>
                         <td colSpan={6} style={{ padding: '1rem 1.5rem', background: 'rgba(46,107,94,.05)', borderTop: '1px solid rgba(255,255,255,.04)' }}>
-                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px,1fr))', gap: '1rem' }}>
+                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px),1fr))', gap: '1rem' }}>
                             {[
                               { label: 'ایمیل', value: u.email },
                               { label: 'تلفن', value: u.phone || '—' },

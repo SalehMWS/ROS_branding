@@ -180,7 +180,7 @@ export default function AdminDashboardPage() {
           ) : users.length === 0 ? (
             <div style={{ padding: "2rem", textAlign: "center", color: "rgba(255,255,255,.3)", fontSize: ".85rem" }}>کاربری یافت نشد</div>
           ) : (
-            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <table style={{ width: "100%", minWidth: 640, borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ background: "rgba(255,255,255,.02)" }}>
                   {["نام", "برند", "پلن", "وضعیت", "تاریخ عضویت", "عملیات"].map(h => (

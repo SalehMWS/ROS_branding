@@ -170,7 +170,7 @@ export default function PortfolioSection() {
           </div>
 
           {/* 3. project cards */}
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(300px,380px))', gap:'1.5rem', justifyContent:'center' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(min(100%, 300px),380px))', gap:'1.5rem', justifyContent:'center' }}>
             {projects.map((p, i) => <ProjectCard key={p.href} p={p} index={i} />)}
           </div>
 

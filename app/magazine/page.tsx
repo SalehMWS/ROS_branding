@@ -158,7 +158,7 @@ export default function MagazinePage() {
             <div style={{ gridRow: '1 / 3' }}><FeaturedCard a={featured[0]} large /></div>
             <FeaturedCard a={featured[1]} />
             <FeaturedCard a={featured[2]} />
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '1rem' }}>
               {/* extra info cards */}
               {[{ icon: '✦', label: 'مقاله جدید', val: 'هر هفته' }, { icon: '◈', label: 'موضوعات تخصصی', val: '۵ دسته‌بندی' }].map(item => (
                 <div key={item.label} style={{ background: 'rgba(74,140,124,.04)', border: '1px solid rgba(74,140,124,.12)', borderRadius: 16, display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.25rem' }}>
@@ -185,7 +185,7 @@ export default function MagazinePage() {
                 const isActive = activecat === cat
                 const color = catColor[cat]
                 return (
-                  <button key={cat} onClick={() => setActivecat(cat)} style={{
+                  <button key={cat} onClick={() => setActivecat(cat)} className="tap" style={{
                     fontSize: '.65rem', fontWeight: 600, borderRadius: 100, padding: '.3rem .8rem', cursor: 'pointer',
                     background: isActive ? (color ? catBg[cat] : 'rgba(74,140,124,.15)') : 'rgba(255,255,255,.04)',
                     border: `1px solid ${isActive ? (color || '#4A8C7C') + '50' : 'var(--c-border)'}`,

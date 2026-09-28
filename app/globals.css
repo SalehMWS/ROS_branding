@@ -77,6 +77,13 @@ body {
 
 a { color: inherit; text-decoration: none; }
 
+/* media never forces the page wider than its container */
+img, video { max-width: 100%; height: auto; }
+
+/* long unbroken strings (URLs, emails, brand names) wrap instead of
+   pushing their container out of the viewport */
+body { overflow-wrap: break-word; }
+
 /* PortfolioSection hardcode override */
 [data-theme="light"] .portfolio-dark {
   background: #1A1916 !important;
@@ -123,6 +130,32 @@ a { color: inherit; text-decoration: none; }
   .mobile-menu { display: none !important; }
   .show-mobile-only { display: none !important; }
   .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ── touch targets ────────────────────────────────────────
+   Small text links stay visually identical on desktop but get a
+   finger-sized hit area on touch-sized screens. */
+@media (max-width: 768px) {
+  .tap {
+    padding-top: .45rem !important;
+    padding-bottom: .45rem !important;
+  }
+}
+
+/* ── responsive grid helpers ──────────────────────────────
+   The inline style sets the desktop track; these collapse it on
+   narrower screens, so a fixed column count never forces the page
+   wider than the viewport. */
+@media (max-width: 900px) {
+  .rg-3 { grid-template-columns: repeat(2, 1fr) !important; }
+  .rg-4 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 640px) {
+  .rg-2, .rg-3, .rg-4, .rg-auto { grid-template-columns: 1fr !important; }
+  .rg-auto { justify-items: start !important; }
+}
+@media (max-width: 460px) {
+  .rg-2-sm { grid-template-columns: 1fr !important; }
 }
 
 @media (min-width: 1025px) {

@@ -226,7 +226,9 @@ export default function AdminBillingPage() {
           placeholder="جستجو نام یا ایمیل..."
           style={{
             padding: ".6rem 1rem",
-            minWidth: 220,
+            flex: "1 1 160px",
+            minWidth: 0,
+            maxWidth: 220,
             background: "#1C2333",
             border: "1px solid rgba(255,255,255,.08)",
             borderRadius: 8,
@@ -265,7 +267,7 @@ export default function AdminBillingPage() {
         }}
       >
         <div style={{ overflowX: "auto" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <table style={{ width: "100%", minWidth: 640, borderCollapse: "collapse" }}>
             <thead>
               <tr>
                 {[

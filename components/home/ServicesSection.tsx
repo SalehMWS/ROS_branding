@@ -67,7 +67,7 @@ export default function ServicesSection() {
         </div>
 
         {/* main: list + detail */}
-        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1.5rem', alignItems:'start' }}>
+        <div className="rg-2" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1.5rem', alignItems:'start' }}>
 
           {/* list */}
           <div style={{ display:'flex', flexDirection:'column', gap:'.5rem' }}>
@@ -118,6 +118,7 @@ export default function ServicesSection() {
             border:'1px solid rgba(74,140,124,.2)',
             borderRadius:20,
             minHeight:320,
+            overflow:'hidden',
           }}>
             <div style={{ position:'absolute', top:-30, right:-30, width:160, height:160, borderRadius:'50%', background:'radial-gradient(circle, rgba(74,140,124,.1), transparent 70%)', pointerEvents:'none' }} />
 

@@ -106,7 +106,7 @@ export default function RahkarSanatPage() {
 
       {/* gallery grid */}
       <section style={{ padding: '0 2rem 4rem', maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: '1rem' }}>
           {images.map((img, i) => (
             <div key={i}
               onClick={() => setLightbox(img.src)}

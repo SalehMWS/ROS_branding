@@ -150,7 +150,7 @@ export default function AIPage() {
               چهار ماژول اصلی — ماژول اول فعال، بقیه در حال توسعه
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '1.25rem' }}>
+          <div className="rg-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '1.25rem' }}>
             {modules.map((m, i) => (
               <div key={i} style={{
                 padding: '1.75rem',
@@ -212,7 +212,7 @@ export default function AIPage() {
         borderTop: '1px solid var(--c-border)',
         borderBottom: '1px solid var(--c-border)',
       }}>
-        <div style={{ maxWidth: 860, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+        <div className="rg-2" style={{ maxWidth: 860, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
           <div>
             <div style={{ fontSize: '.72rem', fontWeight: 600, letterSpacing: '.1em', color: 'var(--c-primary)', marginBottom: '1rem', textTransform: 'uppercase' as const }}>
               ماژول فعال
@@ -303,7 +303,7 @@ export default function AIPage() {
               چگونه برند شما تحلیل می‌شود؟
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem' }}>
+          <div className="rg-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem' }}>
             {steps.map((s, i) => (
               <div key={i} style={{
                 padding: '2rem',

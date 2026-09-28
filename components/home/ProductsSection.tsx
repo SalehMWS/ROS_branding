@@ -153,7 +153,7 @@ export default function ProductsSection() {
         </div>
 
         {/* grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 290px), 1fr))', gap: '1.5rem' }}>
           {products.map(p => <ProductCard key={p.slug} p={p} onClick={() => openModal(p)} />)}
         </div>
       </div>

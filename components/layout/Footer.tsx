@@ -48,7 +48,7 @@ function Col({ title, children }: { title: string; children: React.ReactNode }) 
 function FLink({ href, children }: { href: string; children: React.ReactNode }) {
   const [h, setH] = useState(false)
   return (
-    <Link href={href}
+    <Link href={href} className="tap"
       onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
       style={{ display: 'flex', alignItems: 'center', gap: '.4rem', fontSize: '.82rem', color: h ? 'white' : 'rgba(255,255,255,.38)', textDecoration: 'none', padding: '.3rem 0', transition: 'color .2s ease' }}>
       {h && <div style={{ width: 3, height: 3, borderRadius: '50%', background: '#4A8C7C', flexShrink: 0 }} />}
@@ -82,7 +82,7 @@ export default function Footer() {
                 { icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6', text: 'info@rosbrand.ir', href: 'mailto:info@rosbrand.ir' },
                 { icon: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z', text: '۰۹۱۳ ۴۹۴ ۵۱۸۴', href: 'tel:+989134945184' },
               ].map(item => (
-                <a key={item.href} href={item.href} style={{ display: 'flex', alignItems: 'center', gap: '.6rem', textDecoration: 'none' }}
+                <a key={item.href} href={item.href} className="tap" style={{ display: 'flex', alignItems: 'center', gap: '.6rem', textDecoration: 'none' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color='rgba(74,140,124,.85)' }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color='var(--c-text-light)' }}>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" style={{ flexShrink:0, color:'rgba(74,140,124,.5)' }}><path d={item.icon}/></svg>

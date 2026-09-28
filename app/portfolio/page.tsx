@@ -165,7 +165,7 @@ export default function PortfolioPage() {
       </section>
 
       <section style={{ padding: '4rem 2rem', maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 360px), 1fr))', gap: '1.5rem' }}>
           {projects.map(p => <ProjectCard key={p.slug} p={p} />)}
         </div>
       </section>

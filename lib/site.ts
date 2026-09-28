@@ -29,3 +29,21 @@ export const STATIC_ROUTES = [
   '/portfolio/zoodex-mockup',
   '/magazine',
 ]
+
+/** Routes reachable without a session. Kept here so AuthGuard and the
+ *  sitemap can never disagree about what is public. */
+export const PUBLIC_ROUTES = [
+  ...STATIC_ROUTES,
+  ...SERVICE_ROUTES,
+  '/magazine',
+  '/team',
+  '/login',
+  '/register',
+  '/forgot-password',
+  '/reset-password',
+]
+
+export function isPublicPath(pathname: string) {
+  const path = pathname.length > 1 ? pathname.replace(/\/$/, '') : pathname
+  return PUBLIC_ROUTES.some(p => path === p || path.startsWith(p + '/'))
+}

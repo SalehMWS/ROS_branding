@@ -1,8 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
-
-const PUBLIC_PATHS = ['/', '/login', '/register', '/forgot-password', '/reset-password', '/about', '/services', '/portfolio', '/magazine', '/contact', '/team']
+import { isPublicPath } from '@/lib/site'
 
 export default function AuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter()
@@ -11,7 +10,7 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const token = localStorage.getItem('ros_token')
-    const isPublic = PUBLIC_PATHS.some(p => pathname === p || pathname.startsWith(p + '/') || pathname.startsWith('/magazine/') || pathname.startsWith('/services/') || pathname.startsWith('/team/'))
+    const isPublic = isPublicPath(pathname)
 
     if (!token && !isPublic) {
       router.replace('/login?redirect=' + encodeURIComponent(pathname))
